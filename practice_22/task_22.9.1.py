@@ -24,10 +24,15 @@ def binary_search(array, element, left, right):
 
 try:
     array = list(map(int, input("Введите последовательность чисел через пробел: ").split()))
-    element = int(input("Введите номер элемента: "))
+    element = int(input("Введите число: "))
 except ValueError:
     print("Ай ай ввели не число, атата")
     exit()
 
 print(sort(array)) # сортируем массив
-print(binary_search(array, element, 0, len(array) - 1)) # и только после сортировки применяем функцию поиска
+#проверка входит ли введенное число в диапазон
+
+if element<array[0] or element>array[-1]:
+    print("Число выходит за диапазон")
+else:
+    print(binary_search(array, element, 0, len(array) - 1)) # и только после сортировки применяем функцию поиска
